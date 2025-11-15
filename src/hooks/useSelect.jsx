@@ -1,21 +1,26 @@
 import {useState} from 'react';
 
-// Un Custom Hook es una función de JavaScript que usa otros hooks de React en su interior.
-// Su propósito es encapsular y reutilizar lógica con estado.
-// Por convención, sus nombres siempre empiezan con "use".
+/**
+ * Custom Hook para gestionar un campo <select> y su estado.
+ * Encapsula la lógica de selección y renderiza el componente.
+ * @param {any} initialState - El valor inicial del estado del select.
+ * @param {Array<Object>} options - Un array de objetos para las opciones del select. Cada objeto debe tener `value` y `label`.
+ * @returns {[any, () => JSX.Element]} - Un array con dos elementos:
+ * 1. El estado actual del select.
+ * 2. Un componente (SelectComponent) que renderiza el <select>.
+ */
 const useSelect = (initialState, options) => {
 
-    // 1. ESTADO INTERNO DEL HOOK
+    // Estado interno del hook que almacena el valor seleccionado.
     const [state,setState] = useState(initialState);
 
-    // 2. COMPONENTE DE RENDERIZADO
+    // Componente que se renderizará.
     const SelectComponent = () =>(
         <select
             className="w-full p-4 border rounded-xl"
             value={state} 
             onChange={e => setState(e.target.value)} 
         >
-            <option value="">Seleccione</option>
             {options.map(opt => ( 
                 <option key={opt.value} value={opt.value}>
                     {opt.label}
@@ -23,11 +28,6 @@ const useSelect = (initialState, options) => {
             ))}
         </select>
     );
-
-    // 3. VALOR DE RETORNO
-    // El hook devuelve un array con dos elementos, igual que `useState`:
-    // - El valor actual del estado.
-    // - El componente que hemos creado para ser renderizado.
     return [state, SelectComponent];
 }
 

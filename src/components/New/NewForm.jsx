@@ -12,18 +12,17 @@ const NewForm = ({setCategory}) => {
         { value: 'technology', label: 'Tecnología'},
     ]
 
-    // Utilizamos nuestro custom hook `useSelect` que nos devuelve un array con dos elementos que desestructuramos:
-    // 1. `category`:  Valor Actual del Estado. La llamamos asi porque en este formulario, representa la categoría seleccionada.
-    // 2. `SelectCategory`: Componente a Renderizar. Lo nombramos asi para indicar claramente que es el componente para seleccionar la categoría.
+    // El custom hook `useSelect` encapsula la lógica y el estado para un campo <select>.
+    // Retorna el valor seleccionado y el componente a renderizar.
     const [category, SelectCategory] = useSelect('general', OPTIONS);
 
-    //Submit al form, pasar categorya a app.js
+    // Maneja el envío del formulario.
+    // Actualiza el estado en el componente padre (App.jsx) con la categoría seleccionada.
     const searchNews = e =>{
         e.preventDefault();
 
         setCategory(category);
     }
-
 
     return ( 
         <div className="bg-white p-6 rounded-lg shadow-md mt-10">
@@ -31,7 +30,7 @@ const NewForm = ({setCategory}) => {
                 Encuentra Noticias Por Categoria
             </h2>
             <form onSubmit={searchNews} >
-                {/* Aquí renderizamos el componente que nos devolvió el hook. */}
+                {/*Componente renderizado del custom hook*/}
                 <SelectCategory />
                 
                 <div className="mt-6">

@@ -4,8 +4,8 @@ import NewForm from './components/New/NewForm'
 
 function App() {
 
-  //definir state categoria y noticias
-  const [category,setCategory] = useState('');
+  // State para almacenar la categoría de noticias seleccionada por el usuario.
+  const [category, setCategory] = useState('');
 
   return (
     <>
