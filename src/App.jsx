@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
-import NewForm from './components/New/NewForm'
+import NewForm from './components/New/FormNew'
+import IndexNew from './components/New/IndexNew';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
 
     const consultAPI = async() =>{
       const apiKey = import.meta.env.VITE_API_KEY;
-      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}2`;
+      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`;
       
       try {
         const result = await fetch(url);
@@ -42,6 +43,11 @@ function App() {
           <NewForm 
             setCategory={setCategory}
           />
+
+          <IndexNew 
+            news={news}
+          />
+
         </div>
     </>
   )
