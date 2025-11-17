@@ -7,26 +7,31 @@ function App() {
 
   // State para almacenar la categoría de noticias seleccionada por el usuario.
   const [category, setCategory] = useState('');
-  //State para noticias
+  //State para almacenar las  noticias de la API
   const [news, setNews] = useState([]);
 
-
+  /**
+   * @effect
+   * Se ejecuta cada vez que el estado `category` cambia.
+   * Realiza una consulta a la API de noticias para obtener los titulares
+   * correspondientes a la categoría seleccionada.
+   */
   useEffect(() => {
 
     const consultAPI = async() =>{
       const apiKey = import.meta.env.VITE_API_KEY;
       const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`;
-      
+
       try {
         const result = await fetch(url);
         if (!result.ok) {
-            // Manejar errores de HTTP como 404 o 500
-            throw new Error(`${result.status}`);
+          // Lanza un error si la respuesta de la red no fue exitosa (ej. 404, 500).
+          throw new Error(`Error HTTP: ${result.status}`);
         }
 
         const data = await result.json();
         setNews(data.articles);
-      }catch (error) {
+      } catch (error) {
           console.error("No se pudieron recuperar las noticias.", error);
       }
     }
