@@ -13,14 +13,23 @@ function App() {
   useEffect(() => {
 
     const consultAPI = async() =>{
-      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=945ca81751ca4a12bdc1cf58e480043e`;
-    
-      const result = await fetch(url);
+      const apiKey = import.meta.env.VITE_API_KEY;
+      const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}2`;
+      
+      try {
+        const result = await fetch(url);
+        if (!result.ok) {
+            // Manejar errores de HTTP como 404 o 500
+            throw new Error(`${result.status}`);
+        }
 
-      const data = await result.json();
-
-      setNews(data.articles);
+        const data = await result.json();
+        setNews(data.articles);
+      }catch (error) {
+          console.error("No se pudieron recuperar las noticias.", error);
+      }
     }
+  
     consultAPI();
   },[category]);
 
