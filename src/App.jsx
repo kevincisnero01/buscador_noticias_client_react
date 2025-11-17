@@ -43,11 +43,11 @@ function App() {
           <NewForm 
             setCategory={setCategory}
           />
-
+        </div>
+        <div className='w-4/5 m-auto'>
           <IndexNew 
             news={news}
           />
-
         </div>
     </>
   )
