@@ -10,29 +10,23 @@
 
 ## 📝 Descripción del Proyecto
 
-**Buscador de Noticias** es una aplicación web moderna y reactiva que permite a los usuarios buscar y visualizar noticias por categoría. La interfaz, construida con React y estilizada con Tailwind CSS, ofrece una experiencia de usuario limpia y funcional. El proyecto utiliza Vite como herramienta de construcción para un desarrollo y compilación ultrarrápidos.
+**Buscador de Noticias** es una aplicación web que sirve como una demostración práctica de conceptos fundamentales de React. El proyecto se enfoca en el consumo de APIs externas, la gestión de estado con la  API y el uso de Hooks para crear una interfaz de usuario dinámica y reactiva.
 
-La aplicación consume una API externa de noticias para obtener datos en tiempo real, gestionando el estado global a través de React Context para una comunicación eficiente entre componentes.
+La aplicación consume la API de [NewsAPI.org](https://newsapi.org/) para obtener noticias en tiempo real, las cuales se presentan en una interfaz limpia construida con React, Vite y Tailwind CSS.
 
 ## ✨ Características Principales
 
-- **Búsqueda por Categoría:** Filtra las noticias según categorías predefinidas (ej. tecnología, deportes, ciencia).
-- **Diseño Responsivo:** Interfaz adaptable a diferentes tamaños de pantalla (móvil, tablet, escritorio).
-- **Interfaz Limpia:** Diseño minimalista y funcional.
-- **Carga Rápida:** Optimizado para un rendimiento superior gracias a Vite.
+- **🔍 Filtrado por Categoría:** Permite a los usuarios seleccionar una categoría de interés (tecnología, deportes, etc.) para filtrar las noticias mostradas.
+- **📰 Listado en Tarjetas:** Las noticias se presentan en tarjetas individuales que muestran información clave como la fuente, autor, fecha y un resumen del artículo.
+- **🔗 Acceso al Artículo Original:** Al hacer clic en una noticia, el usuario es redirigido en una nueva pestaña al artículo original para una lectura completa.
+- **📱 Diseño Responsivo:** La interfaz se adapta fluidamente a diferentes tamaños de pantalla, garantizando una excelente experiencia en dispositivos móviles, tablets y de escritorio.
 
-## 🚀 Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
-- **Frontend:**
-  - React: Biblioteca para construir interfaces de usuario.
-  - Vite: Herramienta de frontend para un desarrollo rápido.
-- **UI y Estilos:**
-  - Tailwind CSS: Framework de CSS para un diseño rápido y personalizado.
-- **Gestión de Estado:**
-  - React Context API: Para gestionar el estado global de la aplicación (categorías, noticias, paginación).
-  - React Hooks: (`useState`, `useEffect`, `useContext`) para la lógica de estado y ciclo de vida en componentes.
-- **Cliente HTTP:**
-  - Fetch API: Para realizar las peticiones a la API de noticias.
+- **Framework:** React 19+
+- **Lenguaje:** Javascript y JSX
+- **Bundler:** Vite
+- **Estilos:** HTML5, CSS3 & Tailwind CSS.
 
 ## 🛠️ Instalación y Configuración
 
