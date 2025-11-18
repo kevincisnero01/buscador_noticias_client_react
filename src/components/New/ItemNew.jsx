@@ -1,6 +1,6 @@
 const ItemNew = ({item}) => {
     //extraer datos
-    const { author, title, description, url,urlToImage, publishedAt,content, source } = item;
+    const { article_id,link, title, description,content,keywords,creator,category,pubDate,image_url,source_name} = item;
 
     // URL de una imagen de respaldo por si la noticia no tiene una.
     const imagePlaceholder = 'https://placehold.co/400x200.png?text=Noticia+sin+imagen';
@@ -14,18 +14,18 @@ const ItemNew = ({item}) => {
     return ( 
     <>
     <li className="relative bg-white flex flex-col border rounded shadow-md hover:shadow-indigo-400">
-        <a className="relative" href={url} target="_blank">
+        <a className="relative" href={link} target="_blank">
             <img 
                 className="rounded relative w-full object-cover aspect-video"
-                src={urlToImage || imagePlaceholder} 
+                src={image_url || imagePlaceholder} 
                 alt={title}
             />
-            <span className="absolute top-2 left-2 bg-indigo-600 bg-opacity-80 text-white px-2 py-1 rounded-md text-xs font-semibold">{ source.name }</span>
+            <span className="absolute top-2 left-2 bg-indigo-600 bg-opacity-80 text-white px-2 py-1 rounded-md text-xs font-semibold">{ source_name }</span>
         </a>
 
         <div className="flex flex-col justify-beetween gap-3 px-4 py-2">
             <a 
-                href={url} 
+                href={link} 
                 target="_blank" title={ title }
                 className="flex justify-center items-center text-xl font-semibold text-indigo-700 hover:text-indigo-800 two-lines text-ellipsis"
             >
@@ -39,12 +39,12 @@ const ItemNew = ({item}) => {
             <ul className="flex flex-wrap items-center justify-start text-sm gap-2">
                 <li title="Fecha de Publicación"
                     className="flex items-center cursor-pointer gap-0.5 bg-indigo-400 text-black px-2 py-0.5 rounded-full">
-                    <span>{formatDate(publishedAt)}</span>
+                    <span>{formatDate(pubDate)}</span>
                 </li>
                 
-                <li title={author ? 'Autor' : 'Sin Autor'}
+                <li title={creator ? 'Autor' : 'Sin Autor'}
                     className="flex items-center cursor-pointer gap-0.5 bg-indigo-200 text-black px-2 py-0.5 rounded-full">
-                    <span>{author || 'S/A'}</span>
+                    <span>{creator || 'S/A'}</span>
                 </li>
             </ul>
 

@@ -12,7 +12,7 @@
 
 **Buscador de Noticias** es una aplicación web que sirve como una demostración práctica de conceptos fundamentales de React. El proyecto se enfoca en el consumo de APIs externas, la gestión de estado con la  API y el uso de Hooks para crear una interfaz de usuario dinámica y reactiva.
 
-La aplicación consume la API de [NewsAPI.org](https://newsapi.org/) para obtener noticias en tiempo real, las cuales se presentan en una interfaz limpia construida con React, Vite y Tailwind CSS.
+La aplicación consume la API de [newsdata.i](https://newsdata.io/) para obtener noticias en tiempo real, las cuales se presentan en una interfaz limpia construida con React, Vite y Tailwind CSS.
 
 ## ✨ Características Principales
 

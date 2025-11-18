@@ -3,7 +3,7 @@ import useSelect from "../../hooks/useSelect";
 const NewForm = ({setCategory}) => {
 
     const OPTIONS = [
-        { value: 'general', label: 'General'},
+        { value: '', label: 'Seleccione Categoria'},
         { value: 'business', label: 'Negocios'},
         { value: 'entertainment', label: 'Entretenimiento'},
         { value: 'health', label: 'Salud'},
@@ -27,7 +27,7 @@ const NewForm = ({setCategory}) => {
     return ( 
         <div className="bg-white p-6 rounded-lg shadow-md mt-10">
             <h2 className="text-2xl font-bold text-center mb-6">
-                Encuentra Noticias Por Categoria
+                Encuentra Noticias 
             </h2>
             <form onSubmit={searchNews} >
                 {/*Componente renderizado del custom hook*/}
